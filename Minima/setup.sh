@@ -1,6 +1,8 @@
 #!/bin/sh
+set -e
+
 echo "=================================================="
-# echo -e "\033[0;35m"
+echo -e "\033[0;35m"
 echo " #####  ######   #####  ##   ## #### ######  ####### ##   ##  ##### ";
 echo "##   ## ##   ## ##   ## ##   ##  ##  ##   ## ##      ##   ## ##   ##";
 echo "##   ## ##   ## ##      ##   ##  ##  ##   ## ##      ##   ## ##     ";
@@ -8,11 +10,10 @@ echo "####### ######  ##      #######  ##  ##   ## #####   ##   ##  ##### ";
 echo "##   ## ##   ## ##      ##   ##  ##  ##   ## ##      ##   ##      ##";
 echo "##   ## ##   ## ##   ## ##   ##  ##  ##   ## ##      ##   ## ##   ##";
 echo "##   ## ##   ##  #####  ##   ## #### ######  #######  #####   ##### ";
-# echo -e "\e[0m"
+echo -e "\e[0m"
 echo "=================================================="
 sleep 2
 
-set -e
 
 CLEAN_FLAG=''
 PORT=''
@@ -61,9 +62,9 @@ fi
 
 if [ ! $MINIMAUIID ]; then
   read -p "Enter minima ID name: " MINIMAUIID
-  echo 'export MINIMAUIID='$MINIMAUIID >> $HOME/.bash_profile
+  echo 'export MINIMAUIID='$MINIMAUIID >> /root/.bash_profile
 fi
-source $HOME/.bash_profile
+source /root/.bash_profile
 
 wget -q -O $HOME"/minima_service.sh" "https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Minima/minima_service.sh"
 chown minima:minima $HOME"/minima_service.sh"
