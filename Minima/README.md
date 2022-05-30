@@ -44,3 +44,5 @@ curl 127.0.0.1:9002/status | jq : shows the status of Minima
 curl 127.0.0.1:9002/incentivecash | jq : shows your incentive cash balance
 curl 127.0.0.1:9002/help | jq : shows the full list of commands
 ```
+
+//Failed to connect to 127.0.0.1 port 9002: Connection refused
