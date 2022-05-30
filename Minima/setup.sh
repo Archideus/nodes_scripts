@@ -1,8 +1,8 @@
 #!/bin/sh
 set -e
 
-echo "=================================================="
-echo -e "\033[0;35m"
+echo "===================================================================="
+echo "\033[0;35m"
 echo " #####  ######   #####  ##   ## #### ######  ####### ##   ##  ##### ";
 echo "##   ## ##   ## ##   ## ##   ##  ##  ##   ## ##      ##   ## ##   ##";
 echo "##   ## ##   ## ##      ##   ##  ##  ##   ## ##      ##   ## ##     ";
@@ -10,8 +10,8 @@ echo "####### ######  ##      #######  ##  ##   ## #####   ##   ##  ##### ";
 echo "##   ## ##   ## ##      ##   ##  ##  ##   ## ##      ##   ##      ##";
 echo "##   ## ##   ## ##   ## ##   ##  ##  ##   ## ##      ##   ## ##   ##";
 echo "##   ## ##   ##  #####  ##   ## #### ######  #######  #####   ##### ";
-echo -e "\e[0m"
-echo "=================================================="
+echo "\e[0m"
+echo "===================================================================="
 sleep 2
 
 
@@ -62,9 +62,9 @@ fi
 
 if [ ! $MINIMAUIID ]; then
   read -p "Enter minima ID name: " MINIMAUIID
-  echo 'export MINIMAUIID='$MINIMAUIID >> /root/.bash_profile
+  echo 'export MINIMAUIID='$MINIMAUIID >> ~/.bash_profile
 fi
-source /root/.bash_profile
+source ~/.bash_profile
 
 wget -q -O $HOME"/minima_service.sh" "https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Minima/minima_service.sh"
 chown minima:minima $HOME"/minima_service.sh"
