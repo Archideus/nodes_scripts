@@ -14,6 +14,11 @@ echo "\e[0m"
 echo "===================================================================="
 sleep 2
 
+if [ ! $MINIMAUIID ]; then
+  read -p "Enter minima ID: " MINIMAUIID
+  echo 'export MINIMAUIID='$MINIMAUIID >> $HOME/.bash_profile
+fi
+source $HOME/.bash_profile
 
 CLEAN_FLAG=''
 PORT=''
@@ -59,12 +64,6 @@ if ! id -u 9001 > /dev/null 2>&1; then
     mkdir $HOME
     chown minima:minima $HOME
 fi
-
-if [ ! $MINIMAUIID ]; then
-  read -p "Enter minima ID name: " MINIMAUIID
-  echo 'export MINIMAUIID='$MINIMAUIID >> ~/.bash_profile
-fi
-source ~/.bash_profile
 
 wget -q -O $HOME"/minima_service.sh" "https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Minima/minima_service.sh"
 chown minima:minima $HOME"/minima_service.sh"
