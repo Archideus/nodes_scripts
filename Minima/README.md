@@ -7,6 +7,8 @@
 - 1GB RAM
 - 30GB of storage (SSD or NVME)
 
+## Register on [Minima](https://incentive.minima.global/)
+
 ## Installation Linux VPS
 
 -Log in as the root user.
@@ -27,3 +29,18 @@ wget -O minima_setup.sh https://raw.githubusercontent.com/Archideus/nodes_script
 ## Docker
 
 Minima is very easy to install and deploy in a Docker container.
+
+## Useful Commands
+
+```sh
+Stopping/starting Minima (Service must be called minima.service)
+sudo systemctl stop minima_9001 : Stop the Minima service
+sudo systemctl disable minima_9001 : Disable the Minima service
+sudo systemctl enable minima_9001 : Enable the Minima service 
+sudo systemctl start minima_9001 : Start the Minima service
+
+Interacting with Minima
+curl 127.0.0.1:9002/status | jq : shows the status of Minima 
+curl 127.0.0.1:9002/incentivecash | jq : shows your incentive cash balance
+curl 127.0.0.1:9002/help | jq : shows the full list of commands
+```

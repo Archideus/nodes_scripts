@@ -1,4 +1,17 @@
 #!/bin/sh
+echo "=================================================="
+echo -e "\033[0;35m"
+echo " #####  ######   #####  ##   ## #### ######  ####### ##   ##  ##### ";
+echo "##   ## ##   ## ##   ## ##   ##  ##  ##   ## ##      ##   ## ##   ##";
+echo "##   ## ##   ## ##      ##   ##  ##  ##   ## ##      ##   ## ##     ";
+echo "####### ######  ##      #######  ##  ##   ## #####   ##   ##  ##### ";
+echo "##   ## ##   ## ##      ##   ##  ##  ##   ## ##      ##   ##      ##";
+echo "##   ## ##   ## ##   ## ##   ##  ##  ##   ## ##      ##   ## ##   ##";
+echo "##   ## ##   ##  #####  ##   ## #### ######  #######  #####   ##### ";
+echo -e "\e[0m"
+echo "=================================================="
+sleep 2
+
 set -e
 
 CLEAN_FLAG=''
@@ -29,8 +42,15 @@ while getopts ':xsc::p:r:d:h:' flag; do
   esac
 done
 
+if [ ! $MINIMAUIID ]; then
+  read -p "Enter minima ID name: " MINIMAUIID
+  echo 'export MINIMAUIID='$MINIMAUIID >> $HOME/.bash_profile
+fi
+source $HOME/.bash_profile
+
 apt update
-apt install curl
+sudo apt install curl -y
+sudo apt install jq -y
 apt install openjdk-11-jre-headless curl jq -y
 
 if [ ! $(getent group minima) ]; then
@@ -58,6 +78,8 @@ chmod a+x /etc/cron.weekly/minima_$PORT
 
 CMD="$HOME/minima_service.sh $@"
 /bin/sh -c "$CMD"
+
+curl 127.0.0.1:9002/incentivecash%20uid:$MINIMAUIID
 
 echo "Install complete - showing logs now -  Ctrl-C to exit logs, minima will keep running"
 journalctl -fn 10 -u minima_$PORT
