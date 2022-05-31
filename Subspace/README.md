@@ -45,6 +45,15 @@ Farmer logs with:
 ```sh
 docker-compose logs --tail=1000 -f farmer
 ```
+To stop docker: 
+```sh
+docker-compose down -v
+```
+To start everything Go to directory with docker-compose.yml and type: 
+```sh
+docker-compose up -d 
+```
+
 
 ## Useful Commands (CLI)
 
