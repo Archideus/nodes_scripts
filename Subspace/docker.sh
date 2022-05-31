@@ -42,34 +42,38 @@ echo "=================================================="
 fi
 #install docker
 if exists docker; then
-	echo -e "\e[1m\e[32m2 Docker exists \e[0m" 
+	echo -e "\e[1m\e[32m3. Docker exists \e[0m" 
 else
-	echo -e "\e[1m\e[32m2 Install docker... \e[0m" && sleep 1
+	echo -e "\e[1m\e[32m3. Install docker... \e[0m" && sleep 1
 	curl -fsSL https://get.docker.com -o get-docker.sh
 	sudo sh get-docker.sh
 fi
 #install docker-compose
-echo -e "\e[1m\e[32m1.1 Installing wget... \e[0m" && sleep 1
-curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+if exists docker-compose; then
+	echo -e "\e[1m\e[32m4. Docker-compose exists \e[0m" 
+else
+	echo -e "\e[1m\e[32m4. Installing docker-compose... \e[0m" && sleep 1
+	curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
+	sudo chmod +x /usr/local/bin/docker-compose
+	sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+fi
 
 SNAPSHOT='gemini-1a-2022-may-31'
 #Read credentials
 if [ ! $ADDRESS ]; then
-echo -e "\e[1m\e[32m2. Enter Polkadot JS address to receive rewards \e[0m"
+echo -e "\e[1m\e[32m5. Enter Polkadot JS address to receive rewards \e[0m"
 read -p "Address: " ADDRESS
 echo "=================================================="
 echo 'export ADDRESS='\"${ADDRESS}\" >> $HOME/.bash_profile
 fi
 if [ ! $NODE_NAME ]; then
-echo -e "\e[1m\e[32m3. Enter Subspace Node name \e[0m"
+echo -e "\e[1m\e[32m6. Enter Subspace Node name \e[0m"
 read -p "Node Name : " NODE_NAME
 echo "=================================================="
 echo 'export NODE_NAME='\"${NODE_NAME}\" >> $HOME/.bash_profile
 fi
 if [ ! $PLOTSIZE ]; then
-echo -e "\e[1m\e[32m4. Enter Subspace Farmer Plot Size. For example 30G (means 30 Gigabyte) \e[0m"
+echo -e "\e[1m\e[32m67. Enter Subspace Farmer Plot Size. For example 30G (means 30 Gigabyte) \e[0m"
 read -p "Plot Size : " PLOTSIZE
 echo "=================================================="
 echo 'export PLOTSIZE='\"${PLOTSIZE}\" >> $HOME/.bash_profile
