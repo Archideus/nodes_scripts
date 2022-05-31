@@ -26,6 +26,25 @@ Subspace is very easy to install and deploy in a Docker container.
 wget -O subspace.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Subspace/docker.sh && chmod +x subspace.sh && sudo ./subspace.sh
 ```
 
+### Useful Commands (Docker)
+!Note first go to Subspace folder contained docker-compose.yml
+
+```sh
+cd $HOME/Subspace
+```
+
+You can read logs with: 
+```sh
+    docker-compose logs --tail=1000 -f
+```
+Node logs with: 
+```sh
+docker-compose logs --tail=1000 -f node
+```
+Farmer logs with: 
+```sh
+docker-compose logs --tail=1000 -f farmer
+```
 
 ## Useful Commands (CLI)
 
@@ -74,4 +93,4 @@ To check the Subspace Farmer default logs:
     journalctl -u subspace-farmer.service -f 
 ```
 
-
+##Delete node
