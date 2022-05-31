@@ -26,9 +26,15 @@ Run in console on server
 wget -O minima_setup.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Minima/setup.sh && chmod +x minima_setup.sh && sudo ./minima_setup.sh -r 9002 -p 9001
 ```
 
+Install second Minima on port 9122
+
+```sh
+wget -O minima_setup2.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Minima/setup_second.sh && chmod +x minima_setup2.sh && sudo ./minima_setup2.sh -r 9122 -p 9121
+```
+
 ## Docker
 
-Minima is very easy to install and deploy in a Docker container.
+Minima is very easy to install and deploy in a Docker container.(soon)
 
 ## Useful Commands
 
