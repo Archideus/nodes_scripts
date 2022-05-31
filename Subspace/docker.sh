@@ -83,6 +83,8 @@ sleep 2
 mkdir -p $HOME/Subspace
 cd $HOME/Subspace
 
+rm docker-compose.yml
+
 echo 'version: 3.7
 services:
   node:
