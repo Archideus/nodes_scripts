@@ -41,9 +41,13 @@ sudo apt install wget -y
 echo "=================================================="
 fi
 #install docker
-echo -e "\e[1m\e[32m2 Install docker... \e[0m" && sleep 1
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
+if exists docker; then
+	echo -e "\e[1m\e[32m2 Docker exists \e[0m" 
+else
+	echo -e "\e[1m\e[32m2 Install docker... \e[0m" && sleep 1
+	curl -fsSL https://get.docker.com -o get-docker.sh
+	sudo sh get-docker.sh
+fi
 #install docker-compose
 echo -e "\e[1m\e[32m1.1 Installing wget... \e[0m" && sleep 1
 curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
@@ -82,7 +86,6 @@ IPADDR=$(curl ifconfig.me)
 sleep 2   
 mkdir -p $HOME/Subspace
 cd $HOME/Subspace
-
 rm docker-compose.yml
 
 echo 'version: 3.7
