@@ -92,7 +92,7 @@ mkdir -p $HOME/Subspace
 cd $HOME/Subspace
 rm docker-compose.yml
 
-echo 'version: 3.7
+echo 'version: "3.7"
 services:
   node:
     image: ghcr.io/subspace/node:'$SNAPSHOT'
