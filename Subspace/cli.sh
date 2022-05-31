@@ -107,7 +107,7 @@ Description=Subspace Node
 
 [Service]
 User=$USER
-ExecStart=subspace-node --chain gemini-1 --execution native --pruning 1024 --keep-blocks 1024 --validator --name '$NODE_NAME'
+ExecStart=subspace-node --chain gemini-1 --execution native --pruning 1024 --keep-blocks 1024 --validator --name '$NODE_NAME' --telemetry-url 'wss://telemetry.subspace.network/submit 0'
 Restart=always
 RestartSec=10
 LimitNOFILE=10000
