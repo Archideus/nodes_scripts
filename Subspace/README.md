@@ -1,4 +1,4 @@
-# ![alt text](https://assets.website-files.com/61526a2af87a54e565b0ae92/6155fc8597a1468aa6dfba07_Group%20201.svg) Subspace
+# ![alt text](https://assets.website-files.com/61526a2af87a54e565b0ae92/6155fc8597a1468aa6dfba07_Group%20201.svg)
 ## _Install minima scripts directly to server or using docker_
 
 ## Recomended Minimum Hardware
@@ -8,6 +8,14 @@
 - 50GB of storage (SSD or NVME)
 
 ## Register on [Polkadot](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffarm-rpc.subspace.network%2Fws#/accounts)
+
+
+## CLI
+
+```sh
+wget -O subspace.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Subspace/cli.sh && chmod +x subspace.sh && sudo ./subspace.sh
+```
+
 
 ## Docker
 
