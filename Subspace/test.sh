@@ -1,55 +1,9 @@
 #!/bin/bash
-echo "================================================================================"
-echo -e "\033[0;35m"
-echo "######## ######## ######## ######## ######## ######## ######## ######## ########";
-echo "###  ### #     ## ##    ## #  ##  # ##    ## #    ### #      # #  ##  # ##    ##";
-echo "##    ## #  ##  # #  ##  # #  ##  # ###  ### #  #  ## #  ##### #  ##  # #  ##  #";
-echo "#  ##  # #  ##  # #  ##### #      # ###  ### #  ##  # #    ### #  ##  # #    ###";
-echo "#      # #     ## #  ##### #  ##  # ###  ### #  ##  # #  ##### #  ##  # ####   #";
-echo "#  ##  # #  #  ## #  ##  # #  ##  # ###  ### #  #  ## #  ##### #  ##  # #  ##  #";
-echo "#  ##  # #  ##  # ##    ## #  ##  # ##    ## #    ### #      # ##    ## ##    ##";
-echo "######## ######## ######## ######## ######## ######## ######## ######## ########";
-echo -e "\e[0m"
-echo "================================================================================"
 
-sleep 2
-
-exists()
-{
-  command -v "$1" >/dev/null 2>&1
-}
-if exists curl; then
-  echo ''
-else
-  sudo apt update && sudo apt install curl -y < "/dev/null"
-fi
 bash_profile=$HOME/.bash_profile
 if [ -f "$bash_profile" ]; then
     . $HOME/.bash_profile
 fi
-
-echo -e "\e[1m\e[32m1. Updating dependencies... \e[0m" && sleep 1
-sudo apt update
-echo -e "\e[1m\e[32m2. Install git unzip... \e[0m" && sleep 1
-sudo apt install git unzip -y
-
-if exists wget; then
-  echo ''
-else
-echo -e "\e[1m\e[32m2.1 Installing wget... \e[0m" && sleep 1
-sudo apt install wget -y
-echo "=================================================="
-fi
-#install docker
-echo -e "\e[1m\e[32m2 Install docker... \e[0m" && sleep 1
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-#install docker-compose
-echo -e "\e[1m\e[32m1.1 Installing wget... \e[0m" && sleep 1
-curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
-
 
 SNAPSHOT='gemini-1a-2022-may-31'
 #Read credentials
@@ -71,18 +25,10 @@ read -p "Plot Size : " PLOTSIZE
 echo "=================================================="
 echo 'export PLOTSIZE='\"${PLOTSIZE}\" >> $HOME/.bash_profile
 fi
+echo -e "\e[1m\e[92m Snapshot: \e[0m" $SNAPSHOT
 echo -e "\e[1m\e[92m Node Name: \e[0m" $NODE_NAME
 echo -e "\e[1m\e[92m Address:  \e[0m" $ADDRESS
 echo -e "\e[1m\e[92m Plot Size:  \e[0m" $PLOTSIZE
-
-echo 'source $HOME/.bashrc' >> $HOME/.bash_profile
-. $HOME/.bash_profile
-
-#create folder,download config    
-IPADDR=$(curl ifconfig.me) 
-sleep 2   
-mkdir -p $HOME/Subspace
-cd $HOME/Subspace
 
 echo 'version: 3.7
 services:
@@ -132,7 +78,3 @@ services:
 volumes:
   node-data:
   farmer-data:' >> ./docker-compose.yml
-
-docker-compose up -d
-sleep 1
-docker-compose logs --tail=1000 -f

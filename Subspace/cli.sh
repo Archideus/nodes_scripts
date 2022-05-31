@@ -74,17 +74,17 @@ sleep 1
 
 echo "=================================================="
 
-echo -e "\e[1m\e[32m8. Enter Polkadot JS address to receive rewards \e[0m"
+echo -e "\e[1m\e[32m4. Enter Polkadot JS address to receive rewards \e[0m"
 read -p "Address: " ADDRESS
 
 echo "=================================================="
 
-echo -e "\e[1m\e[32m9. Enter Subspace Node name \e[0m"
+echo -e "\e[1m\e[32m5. Enter Subspace Node name \e[0m"
 read -p "Node Name : " NODE_NAME
 
 echo "=================================================="
 
-echo -e "\e[1m\e[32m9. Enter Subspace Farmer Plot Size. For example 30G (means 30 Gigabyte) \e[0m"
+echo -e "\e[1m\e[32m6. Enter Subspace Farmer Plot Size. For example 30G (means 30 Gigabyte) \e[0m"
 read -p "Plot Size : " PLOTSIZE
 
 echo "=================================================="
@@ -95,12 +95,12 @@ echo -e "\e[1m\e[92m Address:  \e[0m" $ADDRESS
 
 echo -e "\e[1m\e[92m Plot Size:  \e[0m" $PLOTSIZE
 
-echo -e "\e[1m\e[91m    11.1 Continue the process (y/n) \e[0m"
+echo -e "\e[1m\e[91m    7 Continue the process (y/n) \e[0m"
 read -p "(y/n)?" response
 if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
   echo "=================================================="
 
-  echo -e "\e[1m\e[32m12. Creating service for Subspace Node \e[0m"
+  echo -e "\e[1m\e[32m8. Creating service for Subspace Node \e[0m"
 
   echo "[Unit]
 Description=Subspace Node
@@ -120,7 +120,7 @@ WantedBy=multi-user.target
 
     echo "=================================================="
 
-    echo -e "\e[1m\e[32m13. Creating service for Subspace Farmer \e[0m"
+    echo -e "\e[1m\e[32m9. Creating service for Subspace Farmer \e[0m"
 
     echo "[Unit]
 Description=Subspace Farmer
@@ -173,7 +173,7 @@ WantedBy=multi-user.target
     echo -e "\e[1m\e[39m    systemctl start subspace-farmer.service \n \e[0m" 
 
     echo -e "\e[1m\e[32mTo check the Subspace Farmer signed block logs: \e[0m" 
-    echo -e "\e[1m\e[39m    journalctl -u subspace-farmer.service -o cat | grep 'Successfully signed block' \n \e[0m" 
+    echo -e "\e[1m\e[39m    journalctl -u subspace-farmer.service -o cat | grep 'Successfully signed reward hash' \n \e[0m" 
 
     echo -e "\e[1m\e[32mTo check the Subspace Farmer default logs: \e[0m" 
     echo -e "\e[1m\e[39m    journalctl -u subspace-farmer.service -f \n \e[0m" 
