@@ -22,9 +22,6 @@ wget -O subspace.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/ma
 
 Subspace is very easy to install and deploy in a Docker container.
 
--Log in as the root user.
--Open the command prompt, ensure you are in the root directory
-
 ```sh
 wget -O subspace.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Subspace/docker.sh && chmod +x subspace.sh && sudo ./subspace.sh
 ```

@@ -50,7 +50,6 @@ curl -SL https://github.com/docker/compose/releases/download/v2.5.0/docker-compo
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 
-
 SNAPSHOT='gemini-1a-2022-may-31'
 #Read credentials
 if [ ! $ADDRESS ]; then
@@ -116,7 +115,7 @@ services:
     depends_on:
       node:
         condition: service_healthy
-    image: ghcr.io/subspace/farmer:$SNAPSHOT
+    image: ghcr.io/subspace/farmer:'$SNAPSHOT'
     volumes:
       - farmer-data:/var/subspace:rw
 #      - /path/to/subspace-farmer:/var/subspace:rw
