@@ -8,7 +8,7 @@
 - 2GB RAM
 - 50GB of storage (SSD or NVME)
 
-## Register on [Polkadot](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffarm-rpc.subspace.network%2Fws#/accounts)
+## First you need register and create wallet on [Polkadot](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Ffarm-rpc.subspace.network%2Fws#/accounts)
 
 
 ## CLI
