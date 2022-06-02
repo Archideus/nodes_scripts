@@ -58,7 +58,7 @@ else
 	sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 fi
 
-SNAPSHOT='gemini-1a-2022-may-31'
+#SNAPSHOT='gemini-1b-2022-june-02'
 #Read credentials
 if [ ! $ADDRESS ]; then
 echo -e "\e[1m\e[32m5. Enter Polkadot JS address to receive rewards \e[0m"
@@ -95,7 +95,7 @@ rm docker-compose.yml
 echo 'version: "3.7"
 services:
   node:
-    image: ghcr.io/subspace/node:'$SNAPSHOT'
+    image: ghcr.io/subspace/node:gemini-1b-2022-june-02
     volumes:
       - node-data:/var/subspace:rw
 #      - /path/to/subspace-node:/var/subspace:rw
@@ -124,7 +124,7 @@ services:
     depends_on:
       node:
         condition: service_healthy
-    image: ghcr.io/subspace/farmer:'$SNAPSHOT'
+    image: ghcr.io/subspace/farmer:gemini-1b-2022-june-02
     volumes:
       - farmer-data:/var/subspace:rw
 #      - /path/to/subspace-farmer:/var/subspace:rw
