@@ -95,7 +95,7 @@ rm docker-compose.yml
 echo 'version: "3.7"
 services:
   node:
-    image: ghcr.io/subspace/node:gemini-1b-2022-june-02
+    image: ghcr.io/subspace/node:gemini-1b-2022-june-03
     volumes:
       - node-data:/var/subspace:rw
 #      - /path/to/subspace-node:/var/subspace:rw
@@ -124,7 +124,7 @@ services:
     depends_on:
       node:
         condition: service_healthy
-    image: ghcr.io/subspace/farmer:gemini-1b-2022-june-02
+    image: ghcr.io/subspace/farmer:gemini-1b-2022-june-03
     volumes:
       - farmer-data:/var/subspace:rw
 #      - /path/to/subspace-farmer:/var/subspace:rw
