@@ -111,7 +111,7 @@ User=$USER
 ExecStart=subspace-node --chain gemini-1 --execution native --pruning 1024 --keep-blocks 1024 --validator --name '$NODE_NAME' --telemetry-url 'wss://telemetry.subspace.network/submit 0'
 Restart=always
 RestartSec=10
-LimitNOFILE=10  
+LimitNOFILE=65535
 
 [Install]
 WantedBy=multi-user.target
@@ -131,7 +131,7 @@ User=$USER
 ExecStart=subspace-farmer farm --reward-address $ADDRESS --plot-size $PLOTSIZE
 Restart=always
 RestartSec=10
-LimitNOFILE=10000
+LimitNOFILE=65535
 
 [Install]
 WantedBy=multi-user.target
