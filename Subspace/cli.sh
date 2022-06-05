@@ -102,6 +102,7 @@ if [[ $response =~ ^(yes|y| ) ]] || [[ -z $response ]]; then
 
   echo -e "\e[1m\e[32m8. Creating service for Subspace Node \e[0m"
 
+
   echo "[Unit]
 Description=Subspace Node
 
@@ -110,7 +111,7 @@ User=$USER
 ExecStart=subspace-node --chain gemini-1 --execution native --pruning 1024 --keep-blocks 1024 --validator --name '$NODE_NAME' --telemetry-url 'wss://telemetry.subspace.network/submit 0'
 Restart=always
 RestartSec=10
-LimitNOFILE=10000
+LimitNOFILE=10  
 
 [Install]
 WantedBy=multi-user.target

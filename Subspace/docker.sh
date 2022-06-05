@@ -119,6 +119,11 @@ services:
       timeout: 5s
       interval: 30s
       retries: 5
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+        max-file: "5"
 
   farmer:
     depends_on:
@@ -128,6 +133,10 @@ services:
     volumes:
       - farmer-data:/var/subspace:rw
 #      - /path/to/subspace-farmer:/var/subspace:rw
+    logging:
+      options:
+        max-size: "50m"
+        max-file: "5"
     restart: unless-stopped
     command: [
       "--base-path", "/var/subspace",

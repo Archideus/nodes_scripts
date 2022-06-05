@@ -35,7 +35,7 @@ cd $HOME/Subspace
 
 You can read logs with: 
 ```sh
-    docker-compose logs --tail=1000 -f
+docker-compose logs --tail=1000 -f
 ```
 Node logs with: 
 ```sh
@@ -59,47 +59,62 @@ docker-compose up -d
 
 To see status of Subspace Node: 
 ```sh
-    systemctl status subspace-node.service 
+systemctl status subspace-node.service 
 ```
 
 To stop the Subspace Node: 
 ```sh
-    systemctl stop subspace-node.service 
+systemctl stop subspace-node.service 
 ```
  
 To start the Subspace Node: 
 ```sh
-    systemctl start subspace-node.service 
+systemctl start subspace-node.service 
 ```
  
 To check the Subspace Node Logs: 
 ```sh
-    journalctl -u subspace-node.service -f 
+journalctl -u subspace-node.service -f 
 ```
 
 To see status of Subspace Farmer: 
 ```sh
-    systemctl status subspace-farmer.service 
+systemctl status subspace-farmer.service 
 ```
 
 To stop the Subspace Farmer: 
 ```sh
-    systemctl stop subspace-farmer.service 
-```
- 
-To start the Subspace Farmer: 
-```sh
-    systemctl start subspace-farmer.service 
-```
- 
-To check the Subspace Farmer signed block logs: 
-```sh
-    journalctl -u subspace-farmer.service -o cat | grep 'Successfully signed block' 
-```
- 
-To check the Subspace Farmer default logs: 
-```sh
-    journalctl -u subspace-farmer.service -f 
+systemctl stop subspace-farmer.service 
 ```
 
+To start the Subspace Farmer: 
+```sh
+systemctl start subspace-farmer.service 
+```
+
+To check the Subspace Farmer signed block logs: 
+```sh
+journalctl -u subspace-farmer.service -o cat | grep 'Successfully signed block' 
+```
+
+To check the Subspace Farmer default logs: 
+```sh
+journalctl -u subspace-farmer.service -f 
+journalctl -u subspace-farmer.service -f -o cat
+```
+
+Restart farmer: 
+```sh
+sudo systemctl daemon-reload
+sudo systemctl enable subspace-farmer.service
+sudo systemctl restart subspace-farmer.service
+```
+
+Restart node: 
+```sh
+sudo systemctl restart systemd-journald
+sudo systemctl daemon-reload
+sudo systemctl enable subspace-node.service
+sudo systemctl restart subspace-node.service
+```
 ##Delete node
