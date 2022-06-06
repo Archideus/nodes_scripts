@@ -77,18 +77,23 @@ sleep 1
 
 echo "=================================================="
 
-echo -e "\e[1m\e[32m4. Enter Polkadot JS address to receive rewards \e[0m"
+if [ ! $ADDRESS ]; then
+echo -e "\e[1m\e[32m5. Enter Polkadot JS address to receive rewards \e[0m"
 read -p "Address: " ADDRESS
-
 echo "=================================================="
-
-echo -e "\e[1m\e[32m5. Enter Subspace Node name \e[0m"
+echo 'export ADDRESS='\"${ADDRESS}\" >> $HOME/.bash_profile
+fi
+if [ ! $NODE_NAME ]; then
+echo -e "\e[1m\e[32m6. Enter Subspace Node name \e[0m"
 read -p "Node Name : " NODE_NAME
-
 echo "=================================================="
-
-echo -e "\e[1m\e[32m6. Enter Subspace Farmer Plot Size. For example 30G (means 30 Gigabyte) \e[0m"
+echo 'export NODE_NAME='\"${NODE_NAME}\" >> $HOME/.bash_profile
+fi
+if [ ! $PLOTSIZE ]; then
+echo -e "\e[1m\e[32m67. Enter Subspace Farmer Plot Size. For example 30G (means 30 Gigabyte) \e[0m"
 read -p "Plot Size : " PLOTSIZE
+echo "=================================================="
+echo 
 
 echo "=================================================="
 
