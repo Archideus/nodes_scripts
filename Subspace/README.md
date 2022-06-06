@@ -54,8 +54,12 @@ To start everything Go to directory with docker-compose.yml and type:
 docker-compose up -d 
 ```
 
-
 ## Useful Commands (CLI)
+
+Check sync:
+```sh
+curl -H "Content-Type: application/json" -d '{"id":1, "jsonrpc":"2.0", "method": "system_health", "params":[]}' http://localhost:9933/
+```
 
 To see status of Subspace Node: 
 ```sh
@@ -117,6 +121,8 @@ sudo systemctl daemon-reload
 sudo systemctl enable subspace-node.service
 sudo systemctl restart subspace-node.service
 ```
+
+
 ##Delete node
 
 
