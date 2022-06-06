@@ -89,13 +89,12 @@ read -p "Node Name : " NODE_NAME
 echo "=================================================="
 echo 'export NODE_NAME='\"${NODE_NAME}\" >> $HOME/.bash_profile
 fi
+
 if [ ! $PLOTSIZE ]; then
 echo -e "\e[1m\e[32m67. Enter Subspace Farmer Plot Size. For example 30G (means 30 Gigabyte) \e[0m"
 read -p "Plot Size : " PLOTSIZE
 echo "=================================================="
-echo 
-
-echo "=================================================="
+fi
 
 echo -e "\e[1m\e[92m Node Name: \e[0m" $NODE_NAME
 
