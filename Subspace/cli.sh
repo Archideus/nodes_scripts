@@ -89,17 +89,14 @@ read -p "Node Name : " NODE_NAME
 echo "=================================================="
 echo 'export NODE_NAME='\"${NODE_NAME}\" >> $HOME/.bash_profile
 fi
-
 if [ ! $PLOTSIZE ]; then
 echo -e "\e[1m\e[32m67. Enter Subspace Farmer Plot Size. For example 30G (means 30 Gigabyte) \e[0m"
 read -p "Plot Size : " PLOTSIZE
 echo "=================================================="
+echo 'export PLOTSIZE='\"${PLOTSIZE}\" >> $HOME/.bash_profile
 fi
-
 echo -e "\e[1m\e[92m Node Name: \e[0m" $NODE_NAME
-
 echo -e "\e[1m\e[92m Address:  \e[0m" $ADDRESS
-
 echo -e "\e[1m\e[92m Plot Size:  \e[0m" $PLOTSIZE
 
 echo -e "\e[1m\e[91m    7 Continue the process (y/n) \e[0m"
@@ -188,4 +185,3 @@ WantedBy=multi-user.target
 else
     echo -e "\e[1m\e[91m    You have terminated the process \e[0m"
 fi
-
