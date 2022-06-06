@@ -14,7 +14,7 @@
 ## CLI
 
 ```sh
-wget -O cli.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Subspace/cli.sh && chmod +x cli.sh && sudo ./cli.sh
+wget -O subspace.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Subspace/cli.sh && chmod +x subspace.sh && sudo ./subspace.sh
 ```
 
 
