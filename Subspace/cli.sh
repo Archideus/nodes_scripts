@@ -27,10 +27,13 @@ if exists curl; then
 else
   sudo apt update && sudo apt install curl -y < "/dev/null"
 fi
+
 bash_profile=$HOME/.bash_profile
+
 if [ -f "$bash_profile" ]; then
     . $HOME/.bash_profile
 fi
+source $HOME/.bash_profile
 
 echo -e "\e[1m\e[32m1. Updating dependencies... \e[0m" && sleep 1
 sudo apt update
