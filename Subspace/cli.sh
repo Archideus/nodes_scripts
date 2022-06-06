@@ -189,3 +189,4 @@ WantedBy=multi-user.target
 else
     echo -e "\e[1m\e[91m    You have terminated the process \e[0m"
 fi
+
