@@ -90,12 +90,14 @@ IPADDR=$(curl ifconfig.me)
 sleep 2   
 mkdir -p $HOME/Subspace
 cd $HOME/Subspace
-rm docker-compose.yml
+if [ -f "docker-compose.yml" ]; then
+  rm docker-compose.yml
+fi
 
 echo 'version: "3.7"
 services:
   node:
-    image: ghcr.io/subspace/node:gemini-1b-2022-june-03
+    image: ghcr.io/subspace/node:gemini-1b-2022-june-05
     volumes:
       - node-data:/var/subspace:rw
 #      - /path/to/subspace-node:/var/subspace:rw
@@ -129,7 +131,7 @@ services:
     depends_on:
       node:
         condition: service_healthy
-    image: ghcr.io/subspace/farmer:gemini-1b-2022-june-03
+    image: ghcr.io/subspace/farmer:gemini-1b-2022-june-05
     volumes:
       - farmer-data:/var/subspace:rw
 #      - /path/to/subspace-farmer:/var/subspace:rw
