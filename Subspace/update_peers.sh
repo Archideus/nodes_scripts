@@ -730,7 +730,8 @@ ExecStart=subspace-node \\
 --reserved-nodes="/ip4/207.180.219.116/tcp/30333/p2p/12D3KooWJXJfwGrEWHbiVyhZfd6ohJKwsGBy5NaFno7FUUNpZYi9" \\
 --reserved-nodes="/ip4/146.19.24.56/tcp/30333/p2p/12D3KooWJkPoz95vDehdQdyY8jvrZ3jzCcUoLEojN67zbvXjcNgs" \\
 --reserved-nodes="/ip4/194.147.58.6/tcp/30335/p2p/12D3KooWBwbyunNCMuv3AZp4KsmToT6Hfa56s4jaMhx7F1FJHqNJ" \\
---reserved-nodes="/ip4/161.97.78.4/tcp/30333/p2p/12D3KooWPBqmGiBNcL3WwZcdcMzHENxbinhJV8aK4TXApUsaRzmC"
+--reserved-nodes="/ip4/161.97.78.4/tcp/30333/p2p/12D3KooWPBqmGiBNcL3WwZcdcMzHENxbinhJV8aK4TXApUsaRzmC" \\
+--reserved-only
 Restart=on-failure
 RestartSec=10
 LimitNOFILE=65535
@@ -741,3 +742,5 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl enable subspace-node.service
 sudo systemctl restart subspace-node.service
+systemctl status subspace-node.service 
+

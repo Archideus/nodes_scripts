@@ -126,6 +126,17 @@ sudo systemctl restart subspace-node.service
 wget -O update_peers.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Subspace/update_peers.sh && chmod +x update_peers.sh && sudo ./update_peers.sh
 ```
 
+##Delete node peers CLI
+```sh
+wget -O delete_peers.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Subspace/delete_peers.sh && chmod +x delete_peers.sh && sudo ./delete_peers.sh
+```
+
+
+
+Disconected
+```sh
+journalctl -u subspace-node.service -f -o cat | grep 'disconnected'
+```
 
 ##Delete node
 
