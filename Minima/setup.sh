@@ -79,7 +79,11 @@ chmod a+x /etc/cron.weekly/minima_$PORT
 CMD="$HOME/minima_service.sh $@"
 /bin/sh -c "$CMD"
 
+sleep 2
+
 curl 127.0.0.1:9002/incentivecash%20uid:$MINIMAUIID
+
+sleep 2
 
 echo "Install complete - showing logs now -  Ctrl-C to exit logs, minima will keep running"
 journalctl -fn 10 -u minima_$PORT

@@ -131,7 +131,7 @@ wget -O update_peers.sh https://raw.githubusercontent.com/Archideus/nodes_script
 wget -O delete_peers.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Subspace/delete_peers.sh && chmod +x delete_peers.sh && sudo ./delete_peers.sh
 ```
 
-
+//ls /root/.local/share/subspace-node/chains/subspace_gemini_1b/paritydb/full
 
 Disconected
 ```sh
