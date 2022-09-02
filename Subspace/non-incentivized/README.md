@@ -12,6 +12,7 @@ CPU | 2 Core+
 RAM	| 4GB+ (Rec. 8GB)
 Storage - Node | 60GB+
 Storage - Plot | 4KB+
+--- | ---
 
 
 ##Polkadot.js wallet
