@@ -7,7 +7,6 @@
 
 Hardware | Specs
 --- | ---
-<!-- *Still* | `renders` | -->
 CPU | 2 Core+
 RAM	| 4GB+ (Rec. 8GB)
 Storage - Node | 60GB+
