@@ -59,7 +59,7 @@ fi
 #Read credentials 
 IPADDR=$(curl ifconfig.me) 
 if [ ! $SNAPSHOT ]; then
-SNAPSHOT='gemini-1b-2022-june-02'
+SNAPSHOT='gemini-2a-2022-sep-06'
 echo "=================================================="
 echo 'export SNAPSHOT='\"${SNAPSHOT}\" >> $HOME/.bash_profile
 fi
@@ -96,3 +96,55 @@ cd $HOME/subspace
 if [ -f "docker-compose.yml" ]; then
   rm docker-compose.yml
 fi
+
+echo 'version: "3.7"
+services:
+  node:
+    image: ghcr.io/subspace/node:snapshot-DATE
+    volumes:
+      - node-data:/var/subspace:rw
+    ports:
+      - "0.0.0.0:30333:30333"
+    restart: unless-stopped
+    command: [
+      "--chain", "gemini-1",
+      "--base-path", "/var/subspace",
+      "--execution", "wasm",
+      "--pruning", "1024",
+      "--keep-blocks", "1024",
+      "--port", "30333",
+      "--rpc-cors", "all",
+      "--rpc-methods", "safe",
+      "--unsafe-ws-external",
+      "--validator",
+      "--name", '\"$NODE_NAME\"'
+    ]
+    healthcheck:
+      timeout: 5s
+      interval: 30s
+      retries: 5
+  farmer:
+    depends_on:
+      node:
+        condition: service_healthy
+    image: ghcr.io/subspace/farmer:snapshot-DATE
+    volumes:
+      - farmer-data:/var/subspace:rw
+      - "0.0.0.0:40333:40333"
+    restart: unless-stopped
+    command: [
+      "--base-path", "/var/subspace",
+      "farm",
+      "--node-rpc-url", "ws://node:9944",
+      "--ws-server-listen-addr", "0.0.0.0:9955",
+      "--listen-on", "/ip4/0.0.0.0/tcp/40333",
+      "--reward-address", '\"$ADDRESS\"',
+      "--plot-size", '\"$PLOTSIZE\"'
+    ]
+volumes:
+  node-data:
+  farmer-data:' >> ./docker-compose.yml
+
+docker-compose up -d
+sleep 1
+docker-compose logs --tail=1000 -f
