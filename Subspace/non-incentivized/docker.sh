@@ -130,6 +130,7 @@ services:
     image: ghcr.io/subspace/farmer:snapshot-DATE
     volumes:
       - farmer-data:/var/subspace:rw
+    ports:
       - "0.0.0.0:40333:40333"
     restart: unless-stopped
     command: [
