@@ -100,7 +100,7 @@ fi
 echo 'version: "3.7"
 services:
   node:
-    image: ghcr.io/subspace/node:snapshot-DATE
+    image: ghcr.io/subspace/node:'$SNAPSHOT'
     volumes:
       - node-data:/var/subspace:rw
     ports:
@@ -127,7 +127,7 @@ services:
     depends_on:
       node:
         condition: service_healthy
-    image: ghcr.io/subspace/farmer:snapshot-DATE
+    image: ghcr.io/subspace/farmer:'$SNAPSHOT'
     volumes:
       - farmer-data:/var/subspace:rw
     ports:
