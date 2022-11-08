@@ -11,7 +11,7 @@ Chain explorer:
 
 ## Add my peers to server
 ```
-BOOTSTRAP_PEERS=$(curl -sL https://raw.githubusercontent.com/celestiaorg/networks/master/mamaki/peers.txt | tr -d '\n')
+BOOTSTRAP_PEERS=$(curl -sL https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Celestia/my-peers-list.txt | tr -d '\n')
 echo $BOOTSTRAP_PEERS
 sed -i.bak -e "s/^bootstrap-peers *=.*/bootstrap-peers = \"$BOOTSTRAP_PEERS\"/" $HOME/.celestia-app/config/config.toml
 
