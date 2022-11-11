@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 set -e
 
 echo "===================================================================="
@@ -31,7 +31,6 @@ if [ ! $MINIMAUIID ]; then
   echo 'export MINIMAUIID='$MINIMAUIID >> $HOME/.bash_profile
   source $HOME/.bash_profile
 fi
-. $HOME/.bash_profile
 
 echo -e "\e[1m\e[32m2. Creating user minima... \e[0m" && sleep 1
 sudo adduser minima -y
