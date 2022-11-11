@@ -25,9 +25,11 @@ else
   sudo apt update && sudo apt install curl -y < "/dev/null"
 fi
 
+source $HOME/.bash_profile
 if [ ! $MINIMAUIID ]; then
   read -p "Enter minima ID: " MINIMAUIID
   echo 'export MINIMAUIID='$MINIMAUIID >> $HOME/.bash_profile
+  source $HOME/.bash_profile
 fi
 . $HOME/.bash_profile
 
