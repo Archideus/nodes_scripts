@@ -31,8 +31,6 @@ if [ ! $MINIMAUIID ]; then
 fi
 . $HOME/.bash_profile
 
-sudo rm -r /home/minima/
-
 echo -e "\e[1m\e[32m2. Creating user minima... \e[0m" && sleep 1
 sudo adduser minima -y
 sudo usermod -aG sudo minima
