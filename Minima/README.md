@@ -47,10 +47,18 @@ curl 127.0.0.1:9005/incentivecash%20uid:<your id>
 curl 127.0.0.1:9125/incentivecash%20uid:<your id>
 ```
 
-## Docker(soon)
+## Docker
 Minima is very easy to install and deploy in a Docker container.(soon)
 
-## Useful Commands
+### Uninstall Minima Cli if installed before
+```sh
+sudo wget -O minima_remove.sh https://raw.githubusercontent.com/minima-global/Minima/master/scripts/minima_remove.sh && chmod +x minima_remove.sh && sudo ./minima_remove.sh -p 9001 -x
+```
+
+
+
+
+## Useful Commands CLI
 
 ```sh
 Stopping/starting Minima (Service must be called minima.service)
