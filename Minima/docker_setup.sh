@@ -36,7 +36,7 @@ fi
 source $HOME/.bash_profile
 
 echo -e "\e[1m\e[32m2. Creating user minima... \e[0m" && sleep 1
-sudo adduser minima -y
+sudo adduser minima
 sudo usermod -aG sudo minima
 echo -e "\e[1m\e[32m2. Switch to user minima... \e[0m" && sleep 1
 su - minima
