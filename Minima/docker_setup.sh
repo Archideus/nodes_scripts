@@ -25,12 +25,15 @@ else
   sudo apt update && sudo apt install curl -y < "/dev/null"
 fi
 
-source $HOME/.bash_profile
+if [ -f "$bash_profile" ]; then
+    . $HOME/.bash_profile
+fi
 if [ ! $MINIMAUIID ]; then
   read -p "Enter minima ID: " MINIMAUIID
   echo 'export MINIMAUIID='$MINIMAUIID >> $HOME/.bash_profile
-  source $HOME/.bash_profile
+  . $HOME/.bash_profile
 fi
+source $HOME/.bash_profile
 
 echo -e "\e[1m\e[32m2. Creating user minima... \e[0m" && sleep 1
 sudo adduser minima -y
