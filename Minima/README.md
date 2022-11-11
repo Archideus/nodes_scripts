@@ -57,7 +57,7 @@ sudo wget -O minima_remove.sh https://raw.githubusercontent.com/minima-global/Mi
 
 ### Install minima docker node (test)
 ```sh
-wget -O docker_setup.sh https://raw.githubusercontent.com/minima-global/Minima/master/scripts/docker_setup.sh && chmod +x docker_setup.sh && sudo ./docker_setup.sh
+wget -O docker_setup.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Monitoring/docker_setup.sh && chmod +x docker_setup.sh && ./docker_setup.sh
 ```
 
 
