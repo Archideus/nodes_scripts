@@ -121,6 +121,20 @@ sudo systemctl daemon-reload
 sudo systemctl enable subspace-node.service
 sudo systemctl restart subspace-node.service
 ```
+
+
+Remove node: 
+```sh
+sudo systemctl stop subspace-farmer.service
+sudo systemctl stop subspace-node.service
+subspace-farmer wipe
+subspace-node purge-chain -y --chain gemini-3d
+sudo systemctl disable subspace-farmer.service
+sudo systemctl disable subspace-node.service
+sudo systemctl restart systemd-journald
+sudo systemctl daemon-reload
+rm -rf subspace*
+```
 ##Update node peers CLI
 ```sh
 wget -O update_peers.sh https://raw.githubusercontent.com/Archideus/nodes_scripts/main/Subspace/update_peers.sh && chmod +x update_peers.sh && sudo ./update_peers.sh
